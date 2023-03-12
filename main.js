@@ -25,7 +25,7 @@ function draw() {
     open_animation = 10;
   }
 
-  open_animation -= 0.5; //animation open speed
+  open_animation -= 0.4; //animation open speed
 
   let v = [];
   for (let r = 0; r <= rows; r++) {
