@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <img src="assets/sorry.gif" alt="" />
+      </div>
+      <div class="row">
+        <div class="col end">
+          <p class="love-text typing-text"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col start">
+          <button class="btn btn-open1" onclick="openModalBtn()">Uang</button>
+        </div>
+        <div class="col start">
+          <button class="btn btn-open" onclick="openModalBtn1()">Bunga</button>
+        </div>
+      </div>
+      <!-- modal -->
+      <section class="modal hidden">
+        <button class="btn-close">⨉</button>
+        <div>
+          <h3></h3>
+          <h2>Ayang milih <span class="danger">Uang</span> yo</h2>
+          <p class="danger" id="text">
+            Mohon maaf yang, uang sekarang lagi ngerantau jadi ayang pilih bunga
+            ajo yo!
+          </p>
+        </div>
+
+        <button
+          class="btn"
+          onclick="window.location.href='Flower-Animation-Javascript-main/index.html';"
+        >
+          Buka Bunga
+        </button>
+      </section>
+      <div class="overlay hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
