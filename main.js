@@ -67,6 +67,12 @@ function draw() {
     for (let theta = 0; theta < v[r].length; theta++) {
       vertex(v[r][theta].x, v[r][theta].y, v[r][theta].z);
       vertex(v[r + 1][theta].x, v[r + 1][theta].y, v[r + 1][theta].z);
+      vertex(
+        v[r + 1][theta + 1].x,
+        v[r + 1][theta + 1].y,
+        v[r + 1][theta + 1].z
+      );
+      vertex(v[r][theta + 1].x, v[r][theta + 1].y, v[r][theta + 1].z);
     }
     endShape();
   }
