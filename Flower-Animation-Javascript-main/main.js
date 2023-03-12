@@ -9,6 +9,9 @@ let curve1 = 2;
 let curve2 = 1.3;
 let canvas;
 
+var audio = new Audio('sound.mp3');
+audio.play();
+
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   colorMode(HSB);
