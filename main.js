@@ -1,6 +1,6 @@
 let v = [];
-let cols = 600,
-  rows = 30;
+let cols = 300,
+  rows = 10;
 let t_D = (180 * 15) / cols;
 let r_D = 1 / rows;
 let canvas;
