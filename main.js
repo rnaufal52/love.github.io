@@ -1,19 +1,16 @@
-let v = [];
-let cols = 300,
-  rows = 10;
+let cols = 600;
+let rows = 30;
 let t_D = (180 * 15) / cols;
 let r_D = 1 / rows;
+let open_animation = 20;
+let vDensity = 8;
+let pAlign = 3.6;
+let curve1 = 2;
+let curve2 = 1.3;
 let canvas;
 
-let open_animation = 20,
-  vDensity = 8,
-  pAlign = 3.6,
-  curve1 = 2,
-  curve2 = 1.3;
-
 function setup() {
-  canvas = createCanvas(window.screen.width, window.screen.height, WEBGL);
-  canvas.id("canvas");
+  createCanvas(windowWidth, windowHeight, WEBGL);
   colorMode(HSB);
   angleMode(DEGREES);
   noFill();
@@ -30,8 +27,9 @@ function draw() {
 
   open_animation -= 0.9; //animation open speed
 
+  let v = [];
   for (let r = 0; r <= rows; r++) {
-    v.push([]);
+    let row = [];
     for (let theta = 0; theta <= cols; theta++) {
       let phi =
         (180 / open_animation) * Math.exp((-theta * t_D) / (vDensity * 180));
@@ -57,27 +55,19 @@ function draw() {
         (r * r_D * sin(phi) + hangDown * cos(phi)) *
         cos(theta * t_D);
       let pos = createVector(pX, pY, pZ);
-      v[r].push(pos);
+      row.push(pos);
     }
+    v.push(row);
   }
 
-  for (let r = 0; r < v.length; r++) {
+  for (let r = 0; r < v.length - 1; r++) {
     stroke((open_animation / 10) * 360, 100, -20 + r * r_D * 120); //animation color
 
+    beginShape(TRIANGLE_STRIP);
     for (let theta = 0; theta < v[r].length; theta++) {
-      if (r < v.length - 1 && theta < v[r].length - 1) {
-        beginShape();
-        vertex(v[r][theta].x, v[r][theta].y, v[r][theta].z);
-        vertex(v[r + 1][theta].x, v[r + 1][theta].y, v[r + 1][theta].z);
-        vertex(
-          v[r + 1][theta + 1].x,
-          v[r + 1][theta + 1].y,
-          v[r + 1][theta + 1].z
-        );
-        vertex(v[r][theta + 1].x, v[r][theta + 1].y, v[r][theta + 1].z);
-        endShape(CLOSE);
-      }
+      vertex(v[r][theta].x, v[r][theta].y, v[r][theta].z);
+      vertex(v[r + 1][theta].x, v[r + 1][theta].y, v[r + 1][theta].z);
     }
+    endShape();
   }
-  v = [];
 }
