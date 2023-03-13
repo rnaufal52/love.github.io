@@ -23,6 +23,15 @@ type();
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const closeModalBtn = document.querySelector(".btn-close");
+const judul = document.querySelector("span");
+const p = document.querySelector("#text");
+
+// default text
+const juduldefault = "Uang";
+judul.textContent = juduldefault;
+const pdefault =
+  "Mohon maaf yang, uang sekarang lagi ngerantau jadi ayang pilih bunga ajo yo!";
+p.textContent = pdefault;
 
 const openModal = function () {
   modal.classList.remove("hidden");
@@ -30,15 +39,15 @@ const openModal = function () {
 };
 
 const openModalBtn = () => {
+  document.querySelector(".img").src = "assets/woried.gif";
+  judul.textContent = juduldefault;
+  p.textContent = pdefault;
   openModal();
 };
 const openModalBtn1 = () => {
-  const judul = document.querySelector("span");
-  const text = "Bunga";
-  judul.innerHTML = text;
-  const p = document.querySelector("#text");
-  const isi = "Bagus, emang harus milih bunga ayang tu.hahaha";
-  p.innerHTML = isi;
+  document.querySelector(".img").src = "assets/think.gif";
+  judul.textContent = "Bunga";
+  p.textContent = "Bagus, emang harus milih bunga ayang tu.hahaha";
   openModal();
 };
 
