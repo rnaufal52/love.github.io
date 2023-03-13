@@ -53,14 +53,20 @@ img {
   z-index: 2;
 }
 
+.modal img {
+  width: 100px;
+  height: auto;
+  align-self: center;
+}
+
 .modal h2 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #777;
   margin: 0.4rem 0 0.2rem;
 }
 
 .danger {
-  color: red;
+  color: rgb(236, 59, 59);
 }
 
 button {
@@ -103,4 +109,10 @@ button {
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 767px) {
+  .modal {
+    width: 70vw;
+  }
 }
